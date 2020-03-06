@@ -1,0 +1,37 @@
+{
+  "name": "contactDetails",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "indexes": {
+    "metaKey_index": {
+      "keys": {
+        "contactId": 1,
+        "metaKey": -1
+      },
+      "options": {
+        "unique": true
+      }
+    }
+  },
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "contactId": {
+      "type": "number",
+      "required": true
+    },
+    "metaKey": {
+      "type": "string",
+      "required": true
+    },
+    "metaValue": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

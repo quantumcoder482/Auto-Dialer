@@ -1,0 +1,9 @@
+{
+  "loopback-component-explorer": null,
+  "loopback-component-auto-migrate": {
+    "enabled": true,
+    "raiseError": true,
+    "migration": "auto-update-data",
+    "fixtures": "./test/fixtures/"
+  }
+}

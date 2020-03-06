@@ -1,0 +1,74 @@
+{
+  "name": "contact",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "source": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string"
+    },
+    "typeId": {
+      "type": "number",
+      "required": true
+    },
+    "sourceId": {
+      "type": "string"
+    },
+    "status":{
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    },
+    "updatedAt": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    },
+    "deletedAt": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "type": {
+      "type": "belongsTo",
+      "model": "contactType",
+      "foreignKey": "typeId"
+    },
+    "details": {
+      "type": "hasMany",
+      "model": "contactDetails",
+      "foreignKey": "contactId"
+    },
+    "site": {
+      "type": "belongsTo",
+      "model": "site",
+      "foreignKey": "sourceId"
+    }
+  },
+  "acls": [],
+  "methods": {},
+  "scope": {
+    "include": ["type", "details", "site"]
+  }
+}

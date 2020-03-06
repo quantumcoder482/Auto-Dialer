@@ -1,0 +1,65 @@
+{
+  "name": "dialerQueue",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "contactId": {
+      "type": "number",
+      "required": true
+    },
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "repeatCount": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "createdAt":{
+      "type":"number",
+      "required": true
+    },
+    "assignedId": {
+      "type": "number",
+      "required": false
+    },
+    "scheduleTime": {
+      "type": "number",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "contact":{
+      "type":"belongsTo",
+      "model": "contact",
+      "foreignKey": "contactId"
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "assignedId"
+    }
+  },
+  "acls": [],
+  "methods": {},
+  "scope": {
+    "include":["contact","user"]
+  }
+}

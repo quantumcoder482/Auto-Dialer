@@ -1,0 +1,72 @@
+{
+  "name": "dialerHistory",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "userId": {
+      "type":"number",
+      "required": true
+    },
+    "contactId": {
+      "type": "number",
+      "required": true
+    },
+    "dispositionTypeId": {
+      "type": "number",
+      "required": true
+    },
+    "firstName": {
+      "type":  "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "phone" : {
+      "type": "string",
+      "required": true
+    },
+    "callTime": {
+      "type": "string",
+      "required": true
+    },
+    "created": {
+      "type": "date",
+      "dataType": "timestamp",
+      "defaultFn": "now",
+      "required": true
+    },
+    "updated": {
+      "type": "date",
+      "dataType": "timestamp",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "contact": {
+      "type": "belongsTo",
+      "model": "contact",
+      "foreignKey": "contactId"
+    },
+    "dispositionType": {
+      "type": "belongsTo",
+      "model": "dispositionType",
+      "foreignKey": "dispositionTypeId"
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [],
+  "methods": {},
+  "scope": {
+    "include": ["dispositionType","contact"]
+  }
+}

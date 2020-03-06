@@ -1,0 +1,90 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "mysql",
+    "public": false
+  },
+  "AccessToken": {
+    "dataSource": "mysql",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "mysql",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mysql",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "user": {
+    "dataSource": "mysql",
+    "public": true,
+    "options": {
+      "emailVerificationRequired": true
+    }
+  },
+  "userDetails": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "contact": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "contactDetails": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "contactType": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "Email": {
+    "dataSource": "mandrill",
+    "public": false
+  },
+  "site": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "px": {
+    "dataSource": "pxApi",
+    "public": true
+  },
+  "datalot": {
+    "dataSource": "datalotApi",
+    "public": true
+  },
+  "dialerQueue": {
+    "dataSource": "Firebase",
+    "public": true
+  },
+  "dispositionType": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "dialerHistory": {
+    "dataSource": "mysql",
+    "public": true
+  }
+ }

@@ -1,0 +1,81 @@
+{
+  "name": "userDetails",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "indexes": {
+    "metaKey_index": {
+      "keys": {
+        "userId": 1,
+        "metaKey": -1
+      },
+      "options": {
+        "unique": true
+      }
+    }
+  },
+  "options": {
+    "validateUpsert": true
+  },
+  "enableRemoteReplication": true,
+  "properties": {
+    "metaId": {
+      "type": "number",
+      "id": true,
+      "generated": true
+    },
+    "userId": {
+      "type": "number",
+      "required": true
+    },
+    "metaKey": {
+      "type": "string",
+      "required": true
+    },
+    "metaValue": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "administrator",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "find"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "createUpdates"
+    }
+  ],
+  "methods": {}
+}

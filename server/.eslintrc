@@ -1,0 +1,9 @@
+{
+  "extends": "@loopback/eslint-config",
+  "properties": "never",
+  "rules": {
+    "max-len": ["error", {
+      "code": 120
+    }]
+  }
+}
